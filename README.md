@@ -1,4 +1,4 @@
-## SIMPAC                                     
+# SIMPAC                                     
 
 Simpac is a simple tool to make installing packages easier on Arch Linux.
 
