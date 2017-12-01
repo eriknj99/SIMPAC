@@ -1,0 +1,90 @@
+if [ "$1" = "" ] ; then
+###
+  echo "███████╗██╗███╗   ███╗██████╗  █████╗  ██████╗"
+  echo "██╔════╝██║████╗ ████║██╔══██╗██╔══██╗██╔════╝"
+  echo "███████╗██║██╔████╔██║██████╔╝███████║██║     "
+  echo "╚════██║██║██║╚██╔╝██║██╔═══╝ ██╔══██║██║     "
+  echo "███████║██║██║ ╚═╝ ██║██║     ██║  ██║╚██████╗"
+  echo "╚══════╝╚═╝╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝"
+
+
+echo -
+echo THE SIMPLE PACKAGE MANAGER TOOL
+echo -
+echo type 'simpac --help' for help
+echo -
+
+exit
+fi
+
+if [ "$1" = "--help" ] ; then
+
+echo Usage:
+echo 1: simpac 'package-name'    	Installs the package if avalible.
+echo 2. simpac --update 	        Updates ALL repositories and programs.
+echo 3. simpac --install-yaourt		Automaticaly installs the yaourt packkage manager.
+echo 3. simpac --help		          Desplays this help menu.
+exit
+fi
+
+if [ "$1" = "--install-yaourt" ] ; then
+
+
+  my_string="$(pacman -Ss ^yaourt$)"
+  substring=installed
+
+
+  if [ "${my_string/$substring}" = "$my_string" ] ; then
+    echo yaourt NOT installed
+  else
+    echo yaourt is already installed.
+    exit
+  fi
+
+  if grep -qF "http://repo.archlinux.fr/$arch" '/etc/pacman.conf'; then
+    echo config file already updated...
+  else
+    sudo sh -c "echo '[archlinuxfr]' >> /etc/pacman.conf"
+    sudo sh -c "echo 'SigLevel = Never' >> /etc/pacman.conf"
+    sudo sh -c "echo 'Server = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf"
+  fi
+
+  sudo pacman -Sy yaourt --noconfirm
+  sudo pacman -S --needed base-devel git wget yajl --noconfirm
+
+  exit
+
+fi
+
+if [ "$1" = "--update" ] ; then
+
+ echo updating pacman...
+  sudo pacman -Syu
+ echo updating yaourt...
+  yaourt -Syu
+ exit
+fi
+
+
+my_string="$(pacman -Ss ^$1$)"
+substring=installed
+empty="$(echo)"
+
+if [ "$my_string" = "" ] ; then
+  echo $1 not found in pacman repo
+  echo installing from AUR...
+
+  yaourt -S --noconfirm $1
+
+  exit
+fi
+
+
+
+if [ "${my_string/$substring}" = "$my_string" ] ; then
+  echo $1 NOT installed
+  echo installing with pacman...
+  sudo pacman -S --noconfirm $1
+else
+  echo $1 is already installed
+fi
