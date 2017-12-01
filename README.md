@@ -1,9 +1,4 @@
-                                     
- _____ _____ _____ _____ _____ _____ 
-|   __|     |     |  _  |  _  |     |
-|__   |-   -| | | |   __|     |   --|
-|_____|_____|_|_|_|__|  |__|__|_____|
-                                     
+## SIMPAC                                     
 
 Simpac is a simple tool to make installing packages easier on Arch Linux.
 
