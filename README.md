@@ -6,7 +6,7 @@ Simpac allows you to aromatically install packages from official repositories an
 
 # Usage 
 
-To install a package type “simpac <package-name>” Simpac will first attempt to install the package using pacman from official repositories. If the package is not found in the official repos it will use yaourt to install it from the AUR.   
+To install a package type “simpac package-name” Simpac will first attempt to install the package using pacman from official repositories. If the package is not found in the official repos it will use yaourt to install it from the AUR.   
 
 To update both pacman and yaourt packages type simpac --update
 
