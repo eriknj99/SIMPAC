@@ -2,7 +2,7 @@
 
 Simpac is a simple tool to make installing packages easier on Arch Linux.
 
-Simpac allows you to aromatically install packages from official repositories and user repositories without the hassle of typing multiple long commands. 
+Simpac allows you to automatically install packages from official repositories and user repositories without the hassle of typing multiple long commands. 
 
 # Usage 
 
