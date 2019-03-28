@@ -1,4 +1,7 @@
-# SIMPAC                                     
+# SIMPAC (DEPRECATED*)
+
+*Simpac uses “--noconfirm” which is not recommended for normal installations (Use at your own risk). Yaourt has also been discontinued due to security issues. 
+
 
 Simpac is a simple tool to make installing packages easier on Arch Linux.
 
