@@ -2,7 +2,6 @@
 
 *Simpac uses “--noconfirm” which is not recommended for normal installations (Use at your own risk).
 
----I NO LONGER WORK ON THIS PROJECT---
 
 
 Simpac is a simple tool to make installing packages easier on Arch Linux.
